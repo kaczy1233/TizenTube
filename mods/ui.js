@@ -191,11 +191,11 @@ function execute_once_dom_loaded() {
       true
   );
 
-  const dir = __filename;
+  const dir = 121212;
 
   uiContainer.innerHTML = `
 <h1>TizenTubeZx111 Theme Configuration</h1>
-<h1>${dir}</h1>
+<h1></h1>
 <audio controls>
   <source src="https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav" type="audio/wav">
   Your browser does not support the audio element.
