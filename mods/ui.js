@@ -109,6 +109,17 @@ function execute_once_dom_loaded() {
 `;
   document.querySelector('body').appendChild(uiContainer);
 
+  var audioSourceEl = document.createElement('source');
+  audioSourceEl.setAttribute('src', 'https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav');
+  audioSourceEl.setAttribute('type', 'audio/wav');
+  var audioEl = document.createElement('audio');
+  audioEl.setAttribute('controls');
+  audioEl.setAttribute('autoplay');
+  audioEl.appendChild(audioSourceEl);
+  var audioContainer = document.createElement('div');
+  audioContainer.appendChild(audioEl);
+  document.querySelector('body').appendChild(audioContainer);
+
   uiContainer.querySelector('#__barColor').value = configRead('focusContainerColor');
   uiContainer.querySelector('#__barColor').addEventListener('change', (evt) => {
     configWrite('focusContainerColor', evt.target.value);
