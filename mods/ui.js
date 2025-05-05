@@ -261,7 +261,9 @@ function execute_once_dom_loaded() {
         // a.play();
 
         const soundOne = new Sound('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav')
-        soundOne.play();
+        soundOne.load().then(() => {
+          soundOne.play();
+        });
       }
     };
     return true;
