@@ -1,7 +1,7 @@
 {
   "name": "@kaczy1233/tizentubezx",
   "appName": "TizenTubeZx",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "test",
   "packageType": "mods",
   "websiteURL": "https://youtube.com/tv?additionalDataUrl=http%3A%2F%2Flocalhost%3A8085%2Fdial%2Fapps%2FYouTube",
@@ -19,7 +19,7 @@
     "MediaTrackPrevious"
   ],
   "repository": {
-    "url": "https://github.com/kaczy1233/ttz"
+    "url": "https://github.com/kaczy1233/ttz2"
   },
   "license": "GPL-3.0-only"
 }

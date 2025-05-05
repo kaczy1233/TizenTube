@@ -154,7 +154,7 @@ function execute_once_dom_loaded() {
           console.info('Showing and focusing!');
           uiContainer.style.display = 'block';
           uiContainer.focus();
-          var a = new Audio('https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav');
+          var a = new Audio('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav');
           a.play();
         } else {
           console.info('Hiding!');
