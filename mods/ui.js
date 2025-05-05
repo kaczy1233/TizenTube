@@ -102,7 +102,11 @@ function execute_once_dom_loaded() {
   );
 
   uiContainer.innerHTML = `
-<h1>TizenTube Theme Configuration</h1>
+<h1>TizenTubeZx Theme Configuration</h1>
+<audio controls>
+  <source src="https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
 <label for="__barColor">Navigation Bar Color: <input type="text" id="__barColor"/></label>
 <label for="__routeColor">Main Content Color: <input type="text" id="__routeColor"/></label>
 <div><small>Sponsor segments skipping - https://sponsor.ajay.app</small></div>
