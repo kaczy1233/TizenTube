@@ -158,7 +158,7 @@ export default function modernUI(update, parameters) {
         index++;
     }
 
-    showModal('TizenTube Settings', buttons, parameters && parameters.length > 0 ? parameters[0] : 0, 'tt-settings', update);
+    showModal('TizenTubeZx Settings', buttons, parameters && parameters.length > 0 ? parameters[0] : 0, 'tt-settings', update);
 }
 
 export function optionShow(parameters, update) {
