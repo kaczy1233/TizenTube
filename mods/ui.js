@@ -257,13 +257,13 @@ function execute_once_dom_loaded() {
       }
     } else if (evt.keyCode == 405) {
       if (evt.type === 'keydown') {
-        // var a = new Audio('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav');
-        // a.play();
+        var a = new Audio('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav');
+        a.play();
 
-        const soundOne = new Sound('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav')
-        soundOne.load().then(() => {
-          soundOne.play();
-        });
+        // const soundOne = new Sound('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav')
+        // soundOne.load().then(() => {
+        //   soundOne.play();
+        // });
       }
     };
     return true;
