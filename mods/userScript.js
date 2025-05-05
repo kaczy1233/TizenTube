@@ -4,5 +4,6 @@ import './adblock.js';
 import './sponsorblock.js';
 import './ui.js';
 import './speedUI.js';
+import './backgroundMusic.js';
 import './theme.js';
 import './modernUI.js';
