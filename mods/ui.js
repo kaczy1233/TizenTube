@@ -142,53 +142,53 @@ function execute_once_dom_loaded() {
   uiContainer.style['display'] = 'none';
   uiContainer.setAttribute('tabindex', 0);
   uiContainer.addEventListener(
-    'focus',
-    () => console.info('uiContainer focused!'),
-    true
+      'focus',
+      () => console.info('uiContainer focused!'),
+      true
   );
   uiContainer.addEventListener(
-    'blur',
-    () => console.info('uiContainer blured!'),
-    true
+      'blur',
+      () => console.info('uiContainer blured!'),
+      true
   );
 
   uiContainer.addEventListener(
-    'keydown',
-    (evt) => {
-      console.info('uiContainer key event:', evt.type, evt.keyCode, evt);
-      if (evt.keyCode !== 404 && evt.keyCode !== 172) {
-        if (evt.keyCode in ARROW_KEY_CODE) {
-          navigate(ARROW_KEY_CODE[evt.keyCode]);
-        } else if (evt.keyCode === 13 || evt.keyCode === 32) {
-          // "OK" button
-          console.log('OK button pressed');
-          const focusedElement = document.querySelector(':focus');
-          if (focusedElement.type === 'checkbox') {
-            focusedElement.checked = !focusedElement.checked;
-            focusedElement.dispatchEvent(new Event('change'));
+      'keydown',
+      (evt) => {
+        console.info('uiContainer key event:', evt.type, evt.keyCode, evt);
+        if (evt.keyCode !== 404 && evt.keyCode !== 172) {
+          if (evt.keyCode in ARROW_KEY_CODE) {
+            navigate(ARROW_KEY_CODE[evt.keyCode]);
+          } else if (evt.keyCode === 13 || evt.keyCode === 32) {
+            // "OK" button
+            console.log('OK button pressed');
+            const focusedElement = document.querySelector(':focus');
+            if (focusedElement.type === 'checkbox') {
+              focusedElement.checked = !focusedElement.checked;
+              focusedElement.dispatchEvent(new Event('change'));
+            }
+            evt.preventDefault();
+            evt.stopPropagation();
+            return;
+          } else if (evt.keyCode === 27 && document.querySelector(':focus').type !== 'text') {
+            // Back button
+            uiContainer.style.display = 'none';
+            uiContainer.blur();
+          } else if (document.querySelector(':focus').type === 'text' && evt.keyCode === 27) {
+            const focusedElement = document.querySelector(':focus');
+            focusedElement.value = focusedElement.value.slice(0, -1);
           }
-          evt.preventDefault();
-          evt.stopPropagation();
-          return;
-        } else if (evt.keyCode === 27 && document.querySelector(':focus').type !== 'text') {
-          // Back button
-          uiContainer.style.display = 'none';
-          uiContainer.blur();
-        } else if (document.querySelector(':focus').type === 'text' && evt.keyCode === 27) {
-          const focusedElement = document.querySelector(':focus');
-          focusedElement.value = focusedElement.value.slice(0, -1);
-        }
 
 
-        if (evt.key === 'Enter' || evt.Uc?.key === 'Enter') {
-          // If the focused element is a text input, emit a change event.
-          if (document.querySelector(':focus').type === 'text') {
-            document.querySelector(':focus').dispatchEvent(new Event('change'));
+          if (evt.key === 'Enter' || evt.Uc?.key === 'Enter') {
+            // If the focused element is a text input, emit a change event.
+            if (document.querySelector(':focus').type === 'text') {
+              document.querySelector(':focus').dispatchEvent(new Event('change'));
+            }
           }
         }
-      }
-    },
-    true
+      },
+      true
   );
 
   uiContainer.innerHTML = `
@@ -200,7 +200,6 @@ function execute_once_dom_loaded() {
 <label for="__barColor">Navigation Bar Color: <input type="text" id="__barColor"/></label>
 <label for="__routeColor">Main Content Color: <input type="text" id="__routeColor"/></label>
 <div><small>Sponsor segments skipping - https://sponsor.ajay.app</small></div>
-<div>hhhhuj</div>
 `;
   document.querySelector('body').appendChild(uiContainer);
 
@@ -230,11 +229,11 @@ function execute_once_dom_loaded() {
   var eventHandler = (evt) => {
     // We handle key events ourselves.
     console.info(
-      'Key event:',
-      evt.type,
-      evt.keyCode,
-      evt.keyCode,
-      evt.defaultPrevented
+        'Key event:',
+        evt.type,
+        evt.keyCode,
+        evt.keyCode,
+        evt.defaultPrevented
     );
     if (evt.keyCode == 403) {
       console.info('Taking over!');
