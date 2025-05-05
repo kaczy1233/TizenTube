@@ -102,7 +102,7 @@ function execute_once_dom_loaded() {
   );
 
   uiContainer.innerHTML = `
-<h1>TizenTubeZx Theme Configuration</h1>
+<h1>TizenTubeZx111 Theme Configuration</h1>
 <audio controls>
   <source src="https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav" type="audio/wav">
   Your browser does not support the audio element.
@@ -154,6 +154,8 @@ function execute_once_dom_loaded() {
           console.info('Showing and focusing!');
           uiContainer.style.display = 'block';
           uiContainer.focus();
+          var a = new Audio('https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav');
+          a.play();
         } else {
           console.info('Hiding!');
           uiContainer.style.display = 'none';
