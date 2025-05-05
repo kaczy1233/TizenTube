@@ -17,6 +17,96 @@ const interval = setInterval(() => {
   }
 }, 250);
 
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const context = new AudioContext();
+
+class Sound {
+
+  url = '';
+
+  buffer = null;
+
+  sources = [];
+
+  constructor(url) {
+    this.url = url;
+  }
+
+  load() {
+    if (!this.url) return Promise.reject(new Error('Missing or invalid URL: ', this.url));
+
+    if (this.buffer) return Promise.resolve(this.buffer);
+
+    return new Promise((resolve, reject) => {
+      const request = new XMLHttpRequest();
+
+      request.open('GET', this.url, true);
+      request.responseType = 'arraybuffer';
+
+      // Decode asynchronously:
+
+      request.onload = () => {
+        context.decodeAudioData(request.response, (buffer) => {
+          if (!buffer) {
+            console.log(`Sound decoding error: ${this.url}`);
+
+            reject(new Error(`Sound decoding error: ${this.url}`));
+
+            return;
+          }
+
+          this.buffer = buffer;
+
+          resolve(buffer);
+        });
+      };
+
+      request.onerror = (err) => {
+        console.log('Sound XMLHttpRequest error:', err);
+
+        reject(err);
+      };
+
+      request.send();
+    });
+  }
+
+  play(volume = 1, time = 0) {
+    if (!this.buffer) return;
+
+    // Create a new sound source and assign it the loaded sound's buffer:
+
+    const source = context.createBufferSource();
+
+    source.buffer = this.buffer;
+
+    // Keep track of all sources created, and stop tracking them once they finish playing:
+
+    const insertedAt = this.sources.push(source) - 1;
+
+    source.onended = () => {
+      source.stop(0);
+
+      this.sources.splice(insertedAt, 1);
+    };
+
+    // Create a gain node with the desired volume:
+
+    const gainNode = context.createGain();
+
+    gainNode.gain.value = volume;
+
+    // Connect nodes:
+
+    source.connect(gainNode).connect(context.destination);
+
+    // Start playing at the desired time:
+
+    source.start(time);
+  }
+}
+
 function execute_once_dom_loaded() {
 
   // Add CSS to head.
@@ -154,8 +244,6 @@ function execute_once_dom_loaded() {
           console.info('Showing and focusing!');
           uiContainer.style.display = 'block';
           uiContainer.focus();
-          var a = new Audio('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav');
-          a.play();
         } else {
           console.info('Hiding!');
           uiContainer.style.display = 'none';
@@ -166,6 +254,14 @@ function execute_once_dom_loaded() {
     } else if (evt.keyCode == 404) {
       if (evt.type === 'keydown') {
         modernUI();
+      }
+    } else if (evt.keyCode == 405) {
+      if (evt.type === 'keydown') {
+        // var a = new Audio('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav');
+        // a.play();
+
+        const soundOne = new Sound('https://github.com/kaczy1233/ttz2/raw/refs/heads/main/dist/loop.wav')
+        soundOne.play();
       }
     };
     return true;
