@@ -6,14 +6,6 @@ import updateStyle from './theme.js';
 import { showToast } from './ytUI.js';
 import modernUI from './modernUI.js';
 import { patchResolveCommand } from './resolveCommand.js';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const fs = require('fs');
-let filesText = '';
-fs.readdirSync(__dirname).forEach(file => {
-  filesText += ', ' + file;
-});
 
 // It just works, okay?
 const interval = setInterval(() => {
@@ -200,7 +192,7 @@ function execute_once_dom_loaded() {
   );
 
   uiContainer.innerHTML = `
-<h1>TizenTubeZxxxxx Theme Configuration</h1>
+<h1>TizenTubeZx111 Theme Configuration</h1>
 <audio controls>
   <source src="https://github.com/kaczy1233/TizenTubeZx/raw/refs/heads/main/dist/loop.wav" type="audio/wav">
   Your browser does not support the audio element.
@@ -209,7 +201,7 @@ function execute_once_dom_loaded() {
 <label for="__routeColor">Main Content Color: <input type="text" id="__routeColor"/></label>
 <div><small>Sponsor segments skipping - https://sponsor.ajay.app</small></div>
 <div>${__dirname}</div>
-<div>${filesText}</div>
+<div>hhhhuj</div>
 `;
   document.querySelector('body').appendChild(uiContainer);
 
