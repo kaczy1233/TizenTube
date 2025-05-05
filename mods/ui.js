@@ -200,7 +200,6 @@ function execute_once_dom_loaded() {
 <label for="__barColor">Navigation Bar Color: <input type="text" id="__barColor"/></label>
 <label for="__routeColor">Main Content Color: <input type="text" id="__routeColor"/></label>
 <div><small>Sponsor segments skipping - https://sponsor.ajay.app</small></div>
-<div>${__dirname}</div>
 <div>hhhhuj</div>
 `;
   document.querySelector('body').appendChild(uiContainer);
