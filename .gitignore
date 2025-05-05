@@ -1,5 +1,5 @@
 packets/
 node_modules/
 *.wgt
-dist/
+#dist/
 .sign
