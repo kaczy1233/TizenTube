@@ -18,7 +18,8 @@ const defaultConfig = {
   enableHqThumbnails: true,
   enableChapters: true,
   enableLongPress: true,
-  enableShorts: true
+  enableShorts: true,
+  enableBackgroundMusic: true
 };
 
 let localConfig;

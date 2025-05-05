@@ -4,6 +4,11 @@ import { showModal, buttonItem } from './ytUI.js';
 export default function modernUI(update, parameters) {
     const settings = [
         {
+            name: 'Enable background music',
+            icon: 'PLAY_CIRCLE',
+            value: 'enableBackgroundMusic'
+        },
+        {
             name: 'Ad block',
             icon: 'DOLLAR_SIGN',
             value: 'enableAdBlock'
